@@ -14,7 +14,9 @@ function getPokemonImageFromData(data) {
     sprites: { other },
   } = data;
   const officialArtwork = other['official-artwork'];
-  return officialArtwork['front_default'];
+  return officialArtwork['front_default']
+    ? officialArtwork['front_default']
+    : defaultImage;
 }
 
 function Pokemon(props) {
@@ -44,17 +46,21 @@ function PokemonPage() {
   const [pokemonData, setPokemonData] = useState(null);
   const [isError, setIsError] = useState(false);
 
-  useEffect(function () {
-    PokeApi.getPokemonByName(params.name)
-      .then((data) => {
-        setIsLoading(false);
-        setPokemonData(data);
-      })
-      .catch(() => {
-        setIsLoading(false);
-        setIsError(true);
-      });
-  }, []);
+  const name = params.name;
+  useEffect(
+    function () {
+      PokeApi.getPokemonByName(name)
+        .then((data) => {
+          setIsLoading(false);
+          setPokemonData(data);
+        })
+        .catch(() => {
+          setIsLoading(false);
+          setIsError(true);
+        });
+    },
+    [name]
+  );
 
   if (isLoading) {
     return (

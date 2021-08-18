@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
 function Favorite() {
-  const [favs, setFavs] = useState(function () {
+  const [favs] = useState(function () {
     const value = localStorage.getItem('pokemons');
     if (value) {
       return JSON.parse(value);

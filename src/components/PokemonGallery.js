@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { pokemons } from '../pokemonList';
-import sampleSize from 'lodash/sampleSize';
 import { Link } from 'react-router-dom';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import Button from '@material-ui/core/Button';
