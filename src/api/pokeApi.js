@@ -1,4 +1,5 @@
 const baseURL = 'https://pokeapi.co/api/v2';
+
 class PokeApi {
   constructor() {
     throw new Error('cannot be constructed');

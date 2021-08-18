@@ -5,20 +5,12 @@ import Button from '@material-ui/core/Button';
 import { pokemons } from '../pokemonList';
 import { PokemonGallery } from '../components/PokemonGallery';
 import { Link } from 'react-router-dom';
+import { Favorite } from '../components/Favorite';
 
 function HomePage() {
   const [selection, setSelection] = useState(null);
   return (
     <>
-      <div
-        style={{
-          display: 'flex',
-          justifyContent: 'center',
-          backgroundColor: 'lightgrey',
-        }}
-      >
-        <h1>My Pokedex</h1>
-      </div>
       <h1>Search</h1>
       <div style={{ marginTop: '20px', display: 'flex' }}>
         <Autocomplete
@@ -37,16 +29,16 @@ function HomePage() {
           }}
         />
 
-        <Button
-          component={() => (
-            <Link to={selection ? '/pokemon/' + selection.name : '/'}>
-              Go to pokemon
-            </Link>
-          )}
-          variant="contained"
-          color="primary"
-        ></Button>
+        <Link
+          to={selection ? '/pokemon/' + selection.name : '/'}
+          component={function (props) {
+            return <Button variant="contained" color="primary" {...props} />;
+          }}
+        >
+          Go to Pokemon
+        </Link>
       </div>
+      <Favorite />
       <h1>Pokemon Gallery</h1>
       <PokemonGallery />
     </>

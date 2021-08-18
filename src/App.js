@@ -5,10 +5,11 @@ import CircularProgress from '@material-ui/core/CircularProgress';
 import { HomePage } from './pages/HomePage';
 import { Route, Switch, useParams } from 'react-router-dom';
 import { PokeApi } from './api/pokeApi';
+import { Header } from './components/Header';
 
 function getPokemonImageFromData(data) {
   const defaultImage =
-    'https://static.wikia.nocookie.net/pokemon-fano/images/6/6f/Poke_Ball.png/revision/latest/scale-to-width-down/180?cb=20140520015336';
+    'https://static.wikia.nocookie.net/pokemon-fano/images/6/6f/Poke_Ball.png';
   const {
     sprites: { other },
   } = data;
@@ -96,7 +97,8 @@ function PokemonPage() {
 function App() {
   return (
     <>
-      <Container maxWidth="sm" style={{}}>
+      <Container maxWidth="md" style={{}}>
+        <Header />
         <Switch>
           <Route exact path="/">
             <HomePage />

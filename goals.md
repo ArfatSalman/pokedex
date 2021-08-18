@@ -6,9 +6,10 @@
   - 3 x 3 (which are good enough to come on our home page)
     - most searched [don't-have-the-data]
     - first 9 [simple-but-very-boring]
-    - random []
+    - random [result-dont-stay-on-next-render]
 - personal pokemon page
-- add to favourites (not before doing other things)
+- add to favorites (not before doing other things)
+  - in the browser (localStorage is not permanent)
 
 # folder structure
 
